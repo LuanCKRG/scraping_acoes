@@ -1,7 +1,7 @@
-"use client";
-import { SearchProvider } from "@/context/SearchProvider";
-import { SearchBar } from "@/components/SearchBar";
-import { ListStock } from "@/components/ListStock";
+"use client"
+import { SearchProvider } from "@/context/SearchProvider"
+import { SearchBar } from "@/components/SearchBar"
+import { ListStock } from "@/components/ListStock"
 
 const Home = () => {
   // const response = await fetch('http://localhost:3000/api')
@@ -18,7 +18,7 @@ const Home = () => {
         <ListStock />
       </div>
     </SearchProvider>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

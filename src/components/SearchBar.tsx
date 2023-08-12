@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { useSearch } from "@/context/SearchProvider";
-import { BiSearchAlt } from "react-icons/bi";
+import { useContext } from "react"
+import { useSearch } from "@/context/SearchProvider"
+import { BiSearchAlt } from "react-icons/bi"
 
 export const SearchBar = () => {
-  const { handleSearch, search } = useSearch();
+  const { handleSearch, search } = useSearch()
 
   return (
     <span className="flex justify-center items-center my-4 px-4">
@@ -20,5 +20,5 @@ export const SearchBar = () => {
         </span>
       </div>
     </span>
-  );
-};
+  )
+}
