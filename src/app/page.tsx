@@ -1,4 +1,4 @@
-import { ListOfStocksProvider } from "@/context/SearchProvider"
+import { ListOfStocksProvider } from "@/context/LisofStocksProvider"
 import { SearchBar } from "@/components/SearchBar"
 import { ListStock } from "@/components/ListStock"
 

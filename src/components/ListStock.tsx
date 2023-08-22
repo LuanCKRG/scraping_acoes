@@ -1,6 +1,6 @@
 'use client'
 
-import { useStocks } from "@/context/SearchProvider"
+import { useStocks } from "@/context/LisofStocksProvider"
 import { Stock } from "./Stock"
 
 export const ListStock = () => {

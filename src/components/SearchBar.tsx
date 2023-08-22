@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react"
-import { useStocks } from "@/context/SearchProvider"
+import { useStocks } from "@/context/LisofStocksProvider"
 import { BiSearchAlt } from "react-icons/bi"
-import { ListOfStocksProps, SafraProps } from "@/types"
+import { SafraProps } from "@/types"
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>('')
