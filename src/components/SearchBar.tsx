@@ -11,7 +11,7 @@ export const SearchBar = () => {
 
   async function updateListOfStocks(){
     try {
-      const result = await fetch(`http://localhost:3000/api/${search}`, {cache: 'no-store'})
+      const result = await fetch(`https://ck-scraping-acoes.vercel.app/api/${search}`, {cache: 'no-store'})
       const res: SafraProps[] = await result.json()
       handleListOfStocks(res)
     }
