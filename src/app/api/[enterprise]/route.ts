@@ -4,13 +4,13 @@ import { JSDOM } from "jsdom"
 import { NextResponse } from "next/server"
 
 import puppeteer from "puppeteer-core"
-import chrome from 'chrome-aws-lambda'
+import chrome from '@sparticuz/chromium'
 
 export const GET = async (req: Request, { params }: any) => {
 	const enterprise = await params.enterprise
 
 	async function getContentOfScrape(empresa: string) {
-		const browser = await puppeteer.launch({ args: chrome.args, executablePath: await chrome.executablePath, headless: chrome.headless })
+		const browser = await puppeteer.launch({ args: chrome.args, executablePath: await chrome.executablePath(), headless: chrome.headless })
 		const page = await browser.newPage()
 		const url = `https://www.safra.com.br/resultado-de-busca.htm?query=${empresa}`
 		await page.goto(url, { waitUntil: "domcontentloaded" })
