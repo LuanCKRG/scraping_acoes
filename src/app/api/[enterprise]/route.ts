@@ -78,5 +78,5 @@ export const GET = async (req: Request, { params }: any) => {
 
 	const result = getContentOfScrape(enterprise).then(value => getTheResult(value.scrape, value.src, value.date, value.title))
 
-	return NextResponse.json([await result.then((value) => value)])
+	return NextResponse.json(JSON.stringify([await result.then((value) => value)]))
 }
