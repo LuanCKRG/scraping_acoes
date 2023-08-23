@@ -13,7 +13,6 @@ export const SearchBar = () => {
     try {
       const result = await fetch(`/api/${search}`, { cache: "no-store" });
       const res: SafraProps[] = await result.json();
-      console.log(JSON.parse(res));
       handleListOfStocks(JSON.parse(res));
     } catch (e) {
       console.error(e);
