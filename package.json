@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sparticuz/chromium": "^116.0.0",
     "@types/jsdom": "^21.1.1",
     "@types/node": "20.4.6",
     "@types/react": "18.2.18",
@@ -18,8 +19,7 @@
     "jsdom": "^22.1.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
-    "pupeteer": "^0.0.1",
-    "puppeteer": "^21.0.3",
+    "puppeteer-core": "^21.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",

@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { ListOfStocksProps, SafraProps } from "@/types"
 import { createContext, useContext, useState } from "react"
@@ -11,19 +11,19 @@ interface ListOfStocksContextProps {
 const ListOfStocksContext = createContext<ListOfStocksContextProps>({} as ListOfStocksContextProps)
 
 export const ListOfStocksProvider = ({ children }: { children: React.ReactNode }) => {
-  const [listOfStocks, setListOfStocks] = useState<SafraProps[]>([])
+	const [listOfStocks, setListOfStocks] = useState<SafraProps[]>([])
 
-  function handleListOfStocks(newValue: SafraProps[]) {
-    setListOfStocks(newValue)
-  }
+	function handleListOfStocks(newValue: SafraProps[]) {
+		setListOfStocks(newValue)
+	}
 
-  return (
-    <ListOfStocksContext.Provider value={{ listOfStocks, handleListOfStocks }}>
-      {children}
-    </ListOfStocksContext.Provider>
-  )
+	return (
+		<ListOfStocksContext.Provider value={{ listOfStocks, handleListOfStocks }}>
+			{children}
+		</ListOfStocksContext.Provider>
+	)
 }
 
 export const useStocks = () => {
-  return useContext(ListOfStocksContext)
+	return useContext(ListOfStocksContext)
 }
