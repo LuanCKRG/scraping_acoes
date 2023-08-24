@@ -75,8 +75,9 @@ export const GET = async (req: Request, { params }: any) => {
 		result.font = "Banco Safra"
 		return result
 	}
-
+	
 	const result = getContentOfScrape(enterprise).then(value => getTheResult(value.scrape, value.src, value.date, value.title))
 
 	return NextResponse.json(JSON.stringify([await result.then((value) => value)]))
+	//return NextResponse.json(JSON.stringify([{title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'safra'}, {title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'pse'}]))
 }
