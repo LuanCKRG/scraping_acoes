@@ -1,22 +1,25 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { useStocks } from "@/context/LisofStocksProvider";
-import { BiSearchAlt } from "react-icons/bi";
-import { SafraProps } from "@/types";
+import { useState } from "react"
+import { useStocks } from "@/context/LisofStocksProvider"
+import { BiSearchAlt } from "react-icons/bi"
+import { SafraProps } from "@/types"
 
 export const SearchBar = () => {
-  const [search, setSearch] = useState<string>("");
-  const { handleListOfStocks } = useStocks();
+  const [search, setSearch] = useState<string>("")
+  const { handleListOfStocks } = useStocks()
 
   async function updateListOfStocks() {
     try {
-      const result = await fetch(`/api/${search}`, { cache: "no-store" });
-      const res: SafraProps[] = await result.json();
-      handleListOfStocks(JSON.parse(res.toString()));
-    } catch (e) {
-      console.error(e);
-      return;
+      const result = await fetch(`/api/${search}`, { cache: "no-store" })
+      const res: SafraProps[] = await result.json()
+      const format: SafraProps[] = JSON.parse(res.toString())
+      console.log(format)
+      handleListOfStocks(format)
+    }
+    catch (e) {
+      console.error(e)
+      return
     }
   }
 
@@ -38,5 +41,5 @@ export const SearchBar = () => {
         </span>
       </div>
     </span>
-  );
-};
+  )
+}
