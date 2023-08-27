@@ -12,10 +12,10 @@ export const SearchBar = () => {
   async function updateListOfStocks() {
     try {
       const result = await fetch(`/api/${search}`, { cache: "no-store" })
-      const res: SafraProps[] = await result.json()
-      const format: SafraProps[] = JSON.parse(res.toString())
-      console.log(format)
-      handleListOfStocks(format)
+      const res = await result.json()
+      const data: SafraProps[] = JSON.parse(res)
+      
+      handleListOfStocks(data)
     }
     catch (e) {
       console.error(e)
