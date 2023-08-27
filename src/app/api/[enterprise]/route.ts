@@ -8,8 +8,23 @@ import chrome from '@sparticuz/chromium'
 
 export const GET = async (req: Request, { params }: any) => {
 	const enterprise = await params.enterprise
+	console.log("enterprise")
+	console.log(enterprise)
+
+	const chromeExecPaths: any = {
+		win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+		linux: '/usr/bin/google-chrome',
+		darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+		aix: '',
+		freebsd: '',
+		openbsd: '',
+		sunos: '',
+	}
+	
+	const exePath = chromeExecPaths[process.platform]
 
 	async function getContentOfScrape(empresa: string) {
+		// const browser = await puppeteer.launch({ args: [], executablePath: exePath, headless: true })
 		const browser = await puppeteer.launch({ args: chrome.args, executablePath: await chrome.executablePath(), headless: chrome.headless })
 		const page = await browser.newPage()
 		const url = `https://www.safra.com.br/resultado-de-busca.htm?query=${empresa}`
@@ -76,8 +91,10 @@ export const GET = async (req: Request, { params }: any) => {
 		return result
 	}
 	
-	const result = getContentOfScrape(enterprise).then(value => getTheResult(value.scrape, value.src, value.date, value.title))
+	const result = getContentOfScrape(enterprise).then(value => getTheResult(value.scrape, value.src, value.date, value.title)).catch(e => {console.error(e); console.log('Final error')})
+	console.log("result")
+	console.table(result)
 
 	return NextResponse.json(JSON.stringify([await result.then((value) => value)]))
-	//return NextResponse.json(JSON.stringify([{title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'safra'}, {title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'pse'}]))
+	// return NextResponse.json(JSON.stringify([{title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'safra'}, {title: 'yes', recomendation: 'compra', price: '34', src: 'confia', date: 'aham', font: 'pse'}]))
 }
