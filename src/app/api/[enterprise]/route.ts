@@ -6,6 +6,8 @@ import { NextResponse } from "next/server"
 import puppeteer from "puppeteer-core"
 import chrome from '@sparticuz/chromium'
 
+export const runtime = 'edge'
+
 export const GET = async (req: Request, { params }: any) => {
 	const enterprise = await params.enterprise
 	console.log("enterprise")
